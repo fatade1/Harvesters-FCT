@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
@@ -77,7 +79,7 @@ export default function Footer() {
                 ['Instagram', SocialIcons.Instagram, 'https://www.instagram.com/harvesters.fct/'],
                 ['Facebook', SocialIcons.Facebook, 'https://www.facebook.com/Harvesters.fct'],
                 ['YouTube', SocialIcons.Youtube, 'https://www.youtube.com/@HarvestersTV'],
-              ] as [string, () => JSX.Element, string][]).map(([label, Icon, href]) => (
+              ] as [string, () => React.ReactElement, string][]).map(([label, Icon, href]) => (
                 <a key={label} href={href} aria-label={label} target="_blank" rel="noopener noreferrer" style={{ width: '34px', height: '34px', borderRadius: '8px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.55)', textDecoration: 'none', transition: 'all 0.25s' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(215,25,32,0.2)'; (e.currentTarget as HTMLElement).style.borderColor = '#D71920'; (e.currentTarget as HTMLElement).style.color = '#D71920'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.55)'; }}>
