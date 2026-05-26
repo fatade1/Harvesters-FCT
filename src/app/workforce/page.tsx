@@ -21,10 +21,8 @@ const departments = [
   { name: 'Decoration / Events', icon: '🎨', desc: 'For creative and hands-on people who can help with ambience, setup, event design, and beautification.', who: 'Creative, artistic, hands-on' },
 ];
 
-const availability = ['Weekends only', 'Weekdays only', 'Both weekdays and weekends', 'Flexible / As needed'];
-
 export default function WorkforcePage() {
-  const [form, setForm] = useState({ fullName: '', phone: '', email: '', address: '', department: '', skills: '', isMember: '', availability: '', whyServe: '' });
+  const [form, setForm] = useState({ fullName: '', phone: '', email: '', address: '', department: '', isMember: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -132,7 +130,6 @@ export default function WorkforcePage() {
                       {departments.map(d => <option key={d.name} value={d.name}>{d.name}</option>)}
                     </select>
                   </div>
-                  <div><label className="form-label" htmlFor="w-skills">Skills / Experience</label><textarea id="w-skills" className="form-textarea" placeholder="Describe relevant skills or experience..." value={form.skills} onChange={e => setForm(f => ({ ...f, skills: e.target.value }))} /></div>
                   <div><label className="form-label" htmlFor="w-member">Are you currently a Harvesters member? *</label>
                     <select id="w-member" required className="form-select" value={form.isMember} onChange={e => setForm(f => ({ ...f, isMember: e.target.value }))}>
                       <option value="">Select</option>
@@ -141,13 +138,6 @@ export default function WorkforcePage() {
                       <option value="used-to">I used to attend Harvesters</option>
                     </select>
                   </div>
-                  <div><label className="form-label" htmlFor="w-avail">Preferred Availability *</label>
-                    <select id="w-avail" required className="form-select" value={form.availability} onChange={e => setForm(f => ({ ...f, availability: e.target.value }))}>
-                      <option value="">Select availability</option>
-                      {availability.map(a => <option key={a} value={a}>{a}</option>)}
-                    </select>
-                  </div>
-                  <div><label className="form-label" htmlFor="w-why">Why Do You Want to Serve? *</label><textarea id="w-why" required className="form-textarea" placeholder="Share why you want to be part of the Harvesters FCT launch team..." value={form.whyServe} onChange={e => setForm(f => ({ ...f, whyServe: e.target.value }))} /></div>
                   <button type="submit" className="btn-primary" disabled={loading} style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.7 : 1 }}>
                     {loading ? 'Submitting...' : (<>Join the Launch Workforce <ArrowRight size={15} /></>)}
                   </button>
