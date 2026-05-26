@@ -80,9 +80,26 @@ export default function PartnershipPage() {
   const handleNeedSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); 
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1500));
-    setLoading(false); 
-    setNeedStep(2); // Move to payment details step
+    
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: 'New Partnership Need Committment - Harvesters FCT',
+          from_name: 'Harvesters FCT Website',
+          ...needForm,
+          item: selectedNeed?.name,
+          category: selectedNeed?.category,
+        })
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setLoading(false); 
+      setNeedStep(2); // Move to payment details step
+    }
   };
 
   const handlePaymentMade = () => {

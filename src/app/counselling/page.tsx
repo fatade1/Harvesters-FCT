@@ -12,9 +12,27 @@ export default function CounsellingPage() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); setLoading(true);
-    await new Promise(r => setTimeout(r, 1500));
-    setLoading(false); setSubmitted(true);
+    e.preventDefault(); 
+    setLoading(true);
+    
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: 'New Counselling Request - Harvesters FCT',
+          from_name: 'Harvesters FCT Website',
+          ...form
+        })
+      });
+      if (response.ok) setSubmitted(true);
+      else console.error('Form submission failed.');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setLoading(false); 
+    }
   };
 
   return (

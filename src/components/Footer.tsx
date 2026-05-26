@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -30,6 +30,31 @@ const footerLinks = {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    try {
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: 'New Newsletter Subscription - Harvesters FCT',
+          from_name: 'Harvesters FCT Website',
+          email
+        })
+      });
+      setStatus('success');
+      setEmail('');
+    } catch (error) {
+      console.error(error);
+      setStatus('idle');
+    }
+  };
   return (
     <footer style={{ background: '#071E3D', color: '#E2E8F0' }}>
       {/* Newsletter */}
@@ -44,11 +69,12 @@ export default function Footer() {
                 Get launch updates, prayer alerts, and community news from Harvesters FCT.
               </p>
             </div>
-            <form onSubmit={e => e.preventDefault()} style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <input type="email" placeholder="Enter your email" className="form-input"
+                value={email} onChange={(e) => setEmail(e.target.value)} required
                 style={{ width: '260px', background: 'rgba(255,255,255,0.08)', borderColor: 'rgba(255,255,255,0.15)', color: '#FFFFFF' }} />
-              <button type="submit" className="btn-primary" style={{ gap: '0.4rem' }}>
-                Stay Connected <ArrowRight size={15} />
+              <button type="submit" className="btn-primary" disabled={status === 'loading'} style={{ gap: '0.4rem', opacity: status === 'loading' ? 0.7 : 1 }}>
+                {status === 'success' ? 'Subscribed!' : status === 'loading' ? 'Subscribing...' : 'Stay Connected'} <ArrowRight size={15} />
               </button>
             </form>
           </div>
