@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   description: "Harvesters FCT is an upcoming campus of Harvesters International Christian Centre, coming to the Federal Capital Territory. Join the community, partner with us, or join the workforce.",
   keywords: ["Harvesters FCT", "Harvesters Abuja", "Church in FCT", "Church in Abuja", "Harvesters International Christian Centre", "Christian community Abuja"],
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/icon.png',
+    shortcut: '/icon.png',
+    apple: '/icon.png',
   },
   openGraph: {
     title: "Harvesters FCT | Coming Soon",
