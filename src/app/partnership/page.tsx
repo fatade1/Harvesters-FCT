@@ -124,7 +124,7 @@ export default function PartnershipPage() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText('1234567890');
+    navigator.clipboard.writeText('1228942350');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -333,7 +333,7 @@ export default function PartnershipPage() {
                   <div style={{ marginBottom: '1rem' }}>
                     <span style={{ display: 'block', fontSize: '0.75rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Account Number</span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <strong style={{ fontSize: '1.4rem', color: '#003B73', letterSpacing: '0.1em' }}>1234567890</strong>
+                      <strong style={{ fontSize: '1.4rem', color: '#003B73', letterSpacing: '0.1em' }}>1228942350</strong>
                       <button type="button" onClick={handleCopy} title="Copy Account Number" style={{ 
                         background: copied ? '#D1FAE5' : '#F1F5F9', border: 'none', cursor: 'pointer', 
                         color: copied ? '#10B981' : '#64748B', display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -345,12 +345,15 @@ export default function PartnershipPage() {
                   </div>
                   <div>
                     <span style={{ display: 'block', fontSize: '0.75rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Account Name</span>
-                    <strong style={{ fontSize: '1.05rem', color: '#071E3D' }}>Harvesters FCT Launch</strong>
+                    <strong style={{ fontSize: '1.05rem', color: '#071E3D' }}>Harvesters Savings Account</strong>
                   </div>
                 </div>
 
                 <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '1.5rem' }}>
                   Kindly use <strong>"{selectedNeed.name.substring(0, 15)}... Partnership"</strong> as your payment narration.
+                  <span style={{ display: 'block', fontSize: '0.78rem', color: '#D71920', fontStyle: 'italic', marginTop: '0.5rem' }}>
+                    Note: No pressure, all giving is done from a place of rest, faith and willingness.
+                  </span>
                 </p>
 
                 <button onClick={handlePaymentMade} className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>

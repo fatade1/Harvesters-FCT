@@ -9,16 +9,20 @@ const departments = [
   { name: 'Media Team', icon: '📸', desc: 'For photographers, videographers, livestream operators, editors, designers, and media-minded volunteers.', who: 'Creatives, media professionals' },
   { name: 'Protocol Team', icon: '🎖️', desc: 'For people who can support order, coordination, guest movement, and service flow.', who: 'Organized, detail-oriented' },
   { name: 'Ushering Team', icon: '🤝', desc: 'For warm, organized, and people-friendly individuals who can welcome and guide worshippers.', who: 'People-friendly, hospitable' },
-  { name: 'Hospitality Team', icon: '☕', desc: 'For people who love creating a welcoming experience for guests, first-timers, and leaders.', who: 'Warm, service-oriented' },
+  { name: 'Greeters', icon: '👋', desc: 'For warm and friendly individuals who welcome members and guests at the entrance, making everyone feel at home.', who: 'Warm, welcoming, friendly' },
   { name: 'Follow-Up Team', icon: '📞', desc: 'For people who can help connect with first-timers, new members, and people who need care.', who: 'Compassionate, communicative' },
   { name: "Children's Ministry", icon: '👦', desc: 'For people passionate about teaching, caring for, and creating a safe environment for children.', who: 'Patient, nurturing, child-loving' },
   { name: 'Teens Ministry', icon: '🎒', desc: 'For people who can mentor, guide, and build meaningful relationships with teenagers.', who: 'Youth-focused, relatable' },
   { name: 'Technical / Sound Team', icon: '🔊', desc: 'For people skilled in sound, lighting, equipment setup, projection, and technical support.', who: 'Tech-savvy, detail-oriented' },
   { name: 'Content & Social Media', icon: '📱', desc: 'For people who can support online visibility through content creation, graphics, and social media management.', who: 'Digital natives, creatives' },
-  { name: 'Counselling / Care Team', icon: '💙', desc: 'For mature and compassionate individuals supporting pastoral care and people follow-up.', who: 'Mature, empathetic, trustworthy' },
   { name: 'Outreach Team', icon: '🌍', desc: 'For people passionate about evangelism, community impact, and reaching people outside the church.', who: 'Evangelistic, community-minded' },
   { name: 'Operations / Admin', icon: '📋', desc: 'For people who love structure, planning, coordination, documentation, and behind-the-scenes excellence.', who: 'Organized, administrative' },
-  { name: 'Decoration / Events', icon: '🎨', desc: 'For creative and hands-on people who can help with ambience, setup, event design, and beautification.', who: 'Creative, artistic, hands-on' },
+  { name: 'Program managers/Event organizers', icon: '🎨', desc: 'For organized and creative coordinators who plan, structure, design, and run events with excellence.', who: 'Organized, creative, event coordinators' },
+  { name: 'Traffic', icon: '🚗', desc: 'For volunteers who support car parking, logistics, and vehicular order around the venue.', who: 'Alert, helpful, active' },
+  { name: 'Venue management', icon: '🏢', desc: 'For individuals who manage the venue setup, facilities, seating arrangement, and venue maintenance.', who: 'Resourceful, hands-on, organized' },
+  { name: 'Call centre', icon: '☎️', desc: 'For volunteers making care calls, outreach calls, and follow-ups to keep our community connected.', who: 'Good communicators, patient, caring' },
+  { name: 'Data capturing & Analysis', icon: '📊', desc: 'For analytical individuals who handle attendance data, guest registration, data entry, and reports.', who: 'Analytical, detail-oriented, tech-savvy' },
+  { name: 'Celebration team', icon: '🎉', desc: 'For high-energy volunteers who celebrate first-timers, birthdays, and special milestones in our services.', who: 'Enthusiastic, welcoming, joyful' },
 ];
 
 export default function WorkforcePage() {

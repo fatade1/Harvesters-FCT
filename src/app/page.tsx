@@ -65,7 +65,7 @@ export default function HomePage() {
 
             {/* Stats */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.5rem' }}>
-              {[['13+', 'Communities'], ['15', 'Departments'], ['8', 'Partnership Types']].map(([v, l]) => (
+              {[['13+', 'Communities'], ['19', 'Departments'], ['8', 'Partnership Types']].map(([v, l]) => (
                 <div key={l}>
                   <div style={{ fontSize: '2rem', fontWeight: '800', color: '#D71920', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>{v}</div>
                   <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)', fontWeight: '600' }}>{l}</div>
