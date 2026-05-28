@@ -42,7 +42,7 @@ export default function GivingPage() {
                 "God loves a cheerful giver." — 2 Corinthians 9:7
               </blockquote>
               <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="mailto:hello@harvestersfct.org?subject=Giving%20Enquiry" className="btn-secondary">Contact Finance Team</a>
+                <a href="mailto:fct@harvestersng.org?subject=Giving%20Enquiry" className="btn-secondary">Contact Finance Team</a>
               </div>
             </div>
 

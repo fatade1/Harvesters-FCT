@@ -74,7 +74,7 @@ export default function ContactPage() {
                 {[
                   { icon: MapPin, label: 'Location', value: 'Federal Capital Territory, Nigeria' },
                   { icon: Phone, label: 'Phone', value: '+234 000 000 0000', href: 'tel:+2340000000000' },
-                  { icon: Mail, label: 'Email', value: 'hello@harvestersfct.org', href: 'mailto:hello@harvestersfct.org' },
+                  { icon: Mail, label: 'Email', value: 'fct@harvestersng.org', href: 'mailto:fct@harvestersng.org' },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                     <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#FFF0F1', border: '1px solid #FFC5C7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

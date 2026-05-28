@@ -146,7 +146,7 @@ export default function Footer() {
               {[
                 { icon: MapPin, text: 'Federal Capital Territory, Nigeria' },
                 { icon: Phone, text: '+234 000 000 0000', href: 'tel:+2340000000000' },
-                { icon: Mail, text: 'hello@harvestersfct.org', href: 'mailto:hello@harvestersfct.org' },
+                { icon: Mail, text: 'fct@harvestersng.org', href: 'mailto:fct@harvestersng.org' },
               ].map(({ icon: Icon, text, href }) => (
                 <div key={text} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
                   <Icon size={15} style={{ color: '#D71920', marginTop: '3px', flexShrink: 0 }} />

@@ -112,7 +112,7 @@ export default function NextLevelPrayersPage() {
           <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(215,25,32,0.2)', borderRadius: '20px', padding: '2.5rem', maxWidth: '560px', margin: '0 auto' }}>
             <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '1.2rem', color: '#FFFFFF', marginBottom: '0.75rem', fontWeight: '800' }}>Testimonies</h3>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem' }}>Testimonies from the Harvesters FCT prayer community will appear here. Be the first to share yours.</p>
-            <a href="mailto:hello@harvestersfct.org?subject=Testimony" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.25rem', color: '#D71920', fontWeight: '700', fontSize: '0.875rem', textDecoration: 'none' }}>
+            <a href="mailto:fct@harvestersng.org?subject=Testimony" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '1.25rem', color: '#D71920', fontWeight: '700', fontSize: '0.875rem', textDecoration: 'none' }}>
               Share a Testimony <ArrowRight size={14} />
             </a>
           </div>
