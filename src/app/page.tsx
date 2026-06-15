@@ -129,18 +129,60 @@ export default function HomePage() {
             
             {/* Visual Column */}
             <div style={{ position: 'relative' }}>
-              <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 55px rgba(215,25,32,0.12)', border: '6px solid #FFFFFF', aspectRatio: '1/1' }}>
+              <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 55px rgba(215,25,32,0.15)', border: '6px solid #FFFFFF', aspectRatio: '1/1' }}>
                 <Image 
                   src="/images/thanksgiving_celebration.png" 
                   alt="Midyear Thanksgiving Celebration" 
                   fill 
                   style={{ objectFit: 'cover' }} 
                 />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,30,61,0.5) 0%, transparent 60%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,30,61,0.6) 0%, rgba(7,30,61,0.2) 50%, rgba(7,30,61,0.5) 100%)' }} />
                 
-                <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', padding: '1rem 1.25rem', borderRadius: '16px', borderLeft: '4px solid #D71920' }}>
-                  <div style={{ fontSize: '0.65rem', color: '#D71920', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.2rem' }}>Dress Code</div>
-                  <div style={{ color: '#071E3D', fontWeight: '800', fontSize: '0.9rem', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Native Nigerian / African Attire 👑</div>
+                {/* Floating Glass Countdown Card */}
+                <div style={{ 
+                  position: 'absolute', 
+                  top: '50%', 
+                  left: '50%', 
+                  transform: 'translate(-50%, -50%)', 
+                  width: '88%', 
+                  background: 'rgba(7, 30, 61, 0.78)', 
+                  backdropFilter: 'blur(16px)', 
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1.5px solid rgba(255, 215, 0, 0.3)', // Golden tint border
+                  borderRadius: '24px', 
+                  padding: '1.5rem 1rem', 
+                  textAlign: 'center',
+                  boxShadow: '0 25px 60px rgba(0, 0, 0, 0.45)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem',
+                  zIndex: 10
+                }}>
+                  <div style={{ fontSize: '0.72rem', color: '#FFD700', fontWeight: '800', letterSpacing: '0.15em', textTransform: 'uppercase', textShadow: '0 1px 2px rgba(0,0,0,0.5)' }}>
+                    ⏳ Gathering in Praise
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.45rem', justifyContent: 'center' }}>
+                    {[
+                      { value: timeLeft.days, label: 'Days' },
+                      { value: timeLeft.hours, label: 'Hrs' },
+                      { value: timeLeft.minutes, label: 'Mins' },
+                      { value: timeLeft.seconds, label: 'Secs' }
+                    ].map((unit, idx) => (
+                      <div key={idx} style={{ flex: '1', minWidth: '54px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '14px', padding: '0.85rem 0.2rem', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                        <div style={{ fontSize: '1.6rem', fontWeight: '800', color: '#FFFFFF', fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: '1.1' }}>
+                          {String(unit.value).padStart(2, '0')}
+                        </div>
+                        <div style={{ fontSize: '0.58rem', color: 'rgba(255, 255, 255, 0.55)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
+                          {unit.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ position: 'absolute', bottom: '1.25rem', left: '1.25rem', right: '1.25rem', background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(10px)', padding: '0.875rem 1.15rem', borderRadius: '16px', borderLeft: '4px solid #D71920' }}>
+                  <div style={{ fontSize: '0.62rem', color: '#D71920', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.15rem' }}>Dress Code</div>
+                  <div style={{ color: '#071E3D', fontWeight: '800', fontSize: '0.825rem', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Native Nigerian / African Attire 👑</div>
                 </div>
               </div>
             </div>
@@ -152,7 +194,7 @@ export default function HomePage() {
                 Midyear <span style={{ color: '#D71920' }}>Thanksgiving</span> Service
               </h2>
               
-              <p style={{ color: '#5F6B7A', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
+              <p style={{ color: '#5F6B7A', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2.5rem' }}>
                 Join us for a vibrant, high-energy service of intense gratitude, dancing, and praise as we celebrate God's faithfulness through the first half of the year. Come ready to dance, celebrate, and thank God in your native attire!
               </p>
 
@@ -188,28 +230,6 @@ export default function HomePage() {
                       📍 Major Landmark: Wells Carlton Hotel
                     </span>
                   </div>
-                </div>
-              </div>
-
-              {/* Countdown Timer Display */}
-              <div style={{ marginBottom: '2.5rem' }}>
-                <div style={{ fontSize: '0.72rem', color: '#5F6B7A', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Countdown to Service</div>
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                  {[
-                    { value: timeLeft.days, label: 'Days' },
-                    { value: timeLeft.hours, label: 'Hours' },
-                    { value: timeLeft.minutes, label: 'Mins' },
-                    { value: timeLeft.seconds, label: 'Secs' }
-                  ].map((unit, idx) => (
-                    <div key={idx} style={{ flex: '1 1 70px', minWidth: '70px', background: 'linear-gradient(135deg, #071E3D 0%, #003B73 100%)', borderRadius: '16px', padding: '1rem 0.5rem', textAlign: 'center', boxShadow: '0 8px 20px rgba(7,30,61,0.15)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                      <div style={{ fontSize: '1.75rem', fontWeight: '800', color: '#FFFFFF', fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: '1.1' }}>
-                        {String(unit.value).padStart(2, '0')}
-                      </div>
-                      <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
-                        {unit.label}
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
 
