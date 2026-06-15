@@ -141,7 +141,7 @@ export default function HomePage() {
           <div style={{ 
             position: 'absolute', 
             inset: 0, 
-            background: 'linear-gradient(135deg, rgba(7, 30, 61, 0.85) 0%, rgba(0, 59, 115, 0.78) 50%, rgba(7, 30, 61, 0.9) 100%)' 
+            background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(20, 20, 20, 0.80) 50%, rgba(0, 0, 0, 0.92) 100%)' 
           }} />
         </div>
 
@@ -174,7 +174,7 @@ export default function HomePage() {
           </p>
 
           {/* Middle: Transparent Countdown Display */}
-          <div style={{ margin: '0 auto 3.5rem', maxWidth: '560px' }}>
+          <div style={{ margin: '0 auto 3.5rem', maxWidth: '640px' }}>
             <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               {[
                 { value: timeLeft.days, label: 'Days' },
@@ -189,11 +189,12 @@ export default function HomePage() {
                   padding: '0.5rem 0'
                 }}>
                   <div style={{ 
-                    fontSize: 'clamp(3rem, 7vw, 4.5rem)', 
+                    fontSize: 'clamp(3.8rem, 9vw, 5.8rem)', 
                     fontWeight: '800', 
                     color: '#FFFFFF', 
                     fontFamily: "'Plus Jakarta Sans',sans-serif", 
                     lineHeight: '1',
+                    letterSpacing: '0.02em',
                     textShadow: '0 4px 15px rgba(0,0,0,0.6)'
                   }}>
                     {String(unit.value).padStart(2, '0')}
