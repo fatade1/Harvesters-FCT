@@ -249,9 +249,15 @@ export default function HomePage() {
           {/* Action Buttons & Note */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Link href="/contact" className="btn-primary" style={{ padding: '1rem 2.25rem' }}>
-                Stay Updated <ArrowRight size={15} />
-              </Link>
+              <a 
+                href="https://forms.gle/q3or9XWA85MjU9618" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-primary" 
+                style={{ padding: '1rem 2.25rem' }}
+              >
+                Signify Presence (RSVP) <ArrowRight size={15} />
+              </a>
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
