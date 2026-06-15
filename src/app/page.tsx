@@ -1,8 +1,9 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Users, Heart, Briefcase, Clock, MapPin, ChevronDown } from 'lucide-react';
+import { ArrowRight, Users, Heart, Briefcase, Clock, MapPin, ChevronDown, Calendar } from 'lucide-react';
 
 const communities = [
   { name: 'Young Professionals Network', desc: 'Building careers and faith together', icon: '💼' },
@@ -23,6 +24,32 @@ const values = [
 ];
 
 export default function HomePage() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    // Target date: June 28, 2026 at 10:30 AM West Africa Time (UTC+1)
+    const target = new Date('2026-06-28T10:30:00+01:00').getTime();
+    
+    const calculateTime = () => {
+      const now = new Date().getTime();
+      const difference = target - now;
+      
+      if (difference <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      } else {
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+        setTimeLeft({ days: d, hours: h, minutes: m, seconds: s });
+      }
+    };
+    
+    calculateTime();
+    const interval = setInterval(calculateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div>
       {/* ── HERO ── */}
@@ -89,6 +116,116 @@ export default function HomePage() {
             <Link href="/workforce" style={{ textDecoration: 'underline', color: '#FFFFFF', fontWeight: '800' }}>serve on the team</Link>, or{' '}
             <Link href="/partnership" style={{ textDecoration: 'underline', color: '#FFFFFF', fontWeight: '800' }}>partner with the vision</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* ── MIDYEAR THANKSGIVING countdown event ── */}
+      <section style={{ padding: '6rem 1.5rem', background: '#FFFDF9', borderBottom: '1px solid #F3EDE2', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: '-100px', left: '-100px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(215,25,32,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-150px', right: '-100px', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(218,165,32,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        
+        <div className="container-custom">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            
+            {/* Visual Column */}
+            <div style={{ position: 'relative' }}>
+              <div style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 55px rgba(215,25,32,0.12)', border: '6px solid #FFFFFF', aspectRatio: '1/1' }}>
+                <Image 
+                  src="/images/thanksgiving_celebration.png" 
+                  alt="Midyear Thanksgiving Celebration" 
+                  fill 
+                  style={{ objectFit: 'cover' }} 
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(7,30,61,0.5) 0%, transparent 60%)' }} />
+                
+                <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)', padding: '1rem 1.25rem', borderRadius: '16px', borderLeft: '4px solid #D71920' }}>
+                  <div style={{ fontSize: '0.65rem', color: '#D71920', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.2rem' }}>Dress Code</div>
+                  <div style={{ color: '#071E3D', fontWeight: '800', fontSize: '0.9rem', fontFamily: "'Plus Jakarta Sans',sans-serif" }}>Native Nigerian / African Attire 👑</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Info Column */}
+            <div>
+              <span className="section-label" style={{ color: '#D71920' }}>Upcoming Special Event</span>
+              <h2 className="section-title" style={{ fontSize: 'clamp(2.1rem, 4.5vw, 3rem)', color: '#071E3D', marginBottom: '1.5rem', fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: '800', lineHeight: '1.15' }}>
+                Midyear <span style={{ color: '#D71920' }}>Thanksgiving</span> Service
+              </h2>
+              
+              <p style={{ color: '#5F6B7A', lineHeight: '1.8', fontSize: '1rem', marginBottom: '2rem' }}>
+                Join us for a vibrant, high-energy service of intense gratitude, dancing, and praise as we celebrate God's faithfulness through the first half of the year. Come ready to dance, celebrate, and thank God in your native attire!
+              </p>
+
+              {/* Event Details Card */}
+              <div style={{ background: '#FFFFFF', borderRadius: '20px', padding: '1.5rem 1.75rem', border: '1px solid #EAE2D5', boxShadow: '0 10px 30px rgba(0,0,0,0.02)', display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.5rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <Calendar size={20} style={{ color: '#D71920', marginTop: '2px', flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontSize: '0.75rem', color: '#5F6B7A', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>Date</div>
+                    <strong style={{ fontSize: '0.95rem', color: '#071E3D' }}>Sunday, 28th June 2026</strong>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <Clock size={20} style={{ color: '#D71920', marginTop: '2px', flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontSize: '0.75rem', color: '#5F6B7A', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>Time</div>
+                    <strong style={{ fontSize: '0.95rem', color: '#071E3D' }}>10:30 AM (West Africa Time)</strong>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <MapPin size={20} style={{ color: '#D71920', marginTop: '2px', flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontSize: '0.75rem', color: '#5F6B7A', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.15rem' }}>Venue</div>
+                    <strong style={{ fontSize: '0.95rem', color: '#071E3D', display: 'block', marginBottom: '0.25rem', lineHeight: '1.4' }}>
+                      Signature by Wells Carlton
+                    </strong>
+                    <span style={{ fontSize: '0.85rem', color: '#5F6B7A', display: 'block', lineHeight: '1.4' }}>
+                      No 8 Gado Nasko Close, Off Jose Marti Street, Asokoro, Abuja.
+                    </span>
+                    <span style={{ fontSize: '0.8rem', color: '#003B73', display: 'block', marginTop: '0.25rem', fontWeight: '600' }}>
+                      📍 Major Landmark: Wells Carlton Hotel
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Countdown Timer Display */}
+              <div style={{ marginBottom: '2.5rem' }}>
+                <div style={{ fontSize: '0.72rem', color: '#5F6B7A', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem' }}>Countdown to Service</div>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  {[
+                    { value: timeLeft.days, label: 'Days' },
+                    { value: timeLeft.hours, label: 'Hours' },
+                    { value: timeLeft.minutes, label: 'Mins' },
+                    { value: timeLeft.seconds, label: 'Secs' }
+                  ].map((unit, idx) => (
+                    <div key={idx} style={{ flex: '1 1 70px', minWidth: '70px', background: 'linear-gradient(135deg, #071E3D 0%, #003B73 100%)', borderRadius: '16px', padding: '1rem 0.5rem', textAlign: 'center', boxShadow: '0 8px 20px rgba(7,30,61,0.15)', border: '1px solid rgba(255,255,255,0.05)' }}>
+                      <div style={{ fontSize: '1.75rem', fontWeight: '800', color: '#FFFFFF', fontFamily: "'Plus Jakarta Sans',sans-serif", lineHeight: '1.1' }}>
+                        {String(unit.value).padStart(2, '0')}
+                      </div>
+                      <div style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.6)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.05em', marginTop: '0.25rem' }}>
+                        {unit.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Button & Communion Note */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+                <Link href="/contact" className="btn-primary">
+                  Stay Updated <ArrowRight size={15} />
+                </Link>
+                <span style={{ fontSize: '0.875rem', color: '#5F6B7A', fontWeight: '600', display: 'inline-flex', alignItems: 'center', gap: '0.375rem' }}>
+                  🍇 Communion will be served
+                </span>
+              </div>
+
+            </div>
+
+          </div>
         </div>
       </section>
 
