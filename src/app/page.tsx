@@ -441,7 +441,7 @@ export default function HomePage() {
             </div>
             <div style={{ background: '#071E3D', borderRadius: '24px', padding: '2.5rem', border: '1px solid rgba(215,25,32,0.2)', boxShadow: '0 20px 60px rgba(7,30,61,0.2)' }}>
               <div style={{ fontSize: '0.68rem', color: '#D71920', fontWeight: '700', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1.75rem' }}>Bank Details — Offering & Tithe</div>
-              {[['Bank', 'Zenith Bank'], ['Account Name', 'Harvesters Savings Account'], ['Account Number', '1228942350']].map(([label, value]) => (
+              {[['Bank', 'Zenith Bank'], ['Account Name', 'Harvesters intl Christian Centre FCT'], ['Account Number', '1228942350']].map(([label, value]) => (
                 <div key={label} style={{ marginBottom: '1.25rem' }}>
                   <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.25rem', fontWeight: '500' }}>{label}</div>
                   <div style={{ color: '#FFFFFF', fontWeight: label === 'Account Number' ? '800' : '600', fontSize: label === 'Account Number' ? '1.5rem' : '0.95rem', letterSpacing: label === 'Account Number' ? '0.08em' : '0' }}>{value}</div>

@@ -59,7 +59,7 @@ export default function GivingPage() {
                 </div>
                 <div style={{ marginBottom: '1.25rem' }}>
                   <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.3rem', fontWeight: '500' }}>Account Name</div>
-                  <div style={{ color: '#FFFFFF', fontWeight: '600', fontSize: '0.95rem' }}>Harvesters Savings Account</div>
+                  <div style={{ color: '#FFFFFF', fontWeight: '600', fontSize: '0.95rem' }}>Harvesters intl Christian Centre FCT</div>
                 </div>
                 <div style={{ marginBottom: '2rem' }}>
                   <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.45)', marginBottom: '0.3rem', fontWeight: '500' }}>Account Number</div>

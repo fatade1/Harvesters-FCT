@@ -345,7 +345,7 @@ export default function PartnershipPage() {
                   </div>
                   <div>
                     <span style={{ display: 'block', fontSize: '0.75rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.2rem' }}>Account Name</span>
-                    <strong style={{ fontSize: '1.05rem', color: '#071E3D' }}>Harvesters Savings Account</strong>
+                    <strong style={{ fontSize: '1.05rem', color: '#071E3D' }}>Harvesters intl Christian Centre FCT</strong>
                   </div>
                 </div>
 
