@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Users, Heart, Briefcase, Clock, MapPin, ChevronDown, Calendar } from 'lucide-react';
+import { ArrowRight, Users, Heart, Briefcase, Clock, MapPin, ChevronDown } from 'lucide-react';
 
 const communities = [
   { name: 'Young Professionals Network', desc: 'Building careers and faith together', icon: '💼' },
@@ -24,32 +23,6 @@ const values = [
 ];
 
 export default function HomePage() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-  useEffect(() => {
-    // Target date: June 28, 2026 at 10:30 AM West Africa Time (UTC+1)
-    const target = new Date('2026-06-28T10:30:00+01:00').getTime();
-    
-    const calculateTime = () => {
-      const now = new Date().getTime();
-      const difference = target - now;
-      
-      if (difference <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-      } else {
-        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((difference % (1000 * 60)) / 1000);
-        setTimeLeft({ days: d, hours: h, minutes: m, seconds: s });
-      }
-    };
-    
-    calculateTime();
-    const interval = setInterval(calculateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div>
       {/* ── HERO ── */}
@@ -119,167 +92,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── MIDYEAR THANKSGIVING countdown event ── */}
-      <section style={{ 
-        position: 'relative', 
-        padding: '8rem 1.5rem', 
-        overflow: 'hidden', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        minHeight: '80vh' 
-      }}>
-        {/* Background Image filling entire width/height */}
-        <div style={{ position: 'absolute', inset: 0 }}>
-          <Image 
-            src="/images/thanksgiving_celebration.png" 
-            alt="Midyear Thanksgiving Celebration" 
-            fill 
-            style={{ objectFit: 'cover', objectPosition: 'center' }} 
-          />
-          {/* Overlay to ensure maximum contrast and readability of the white/gold text */}
-          <div style={{ 
-            position: 'absolute', 
-            inset: 0, 
-            background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(20, 20, 20, 0.80) 50%, rgba(0, 0, 0, 0.92) 100%)' 
-          }} />
-        </div>
 
-        <div className="container-custom" style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '840px' }}>
-          
-          {/* Top: Midyear Thanksgiving Text */}
-          <span className="section-label" style={{ color: '#FF6B6B', fontSize: '0.8rem', letterSpacing: '0.16em' }}>
-            Upcoming Special Event
-          </span>
-          <h2 style={{ 
-            fontFamily: "'Plus Jakarta Sans',sans-serif", 
-            fontSize: 'clamp(2.5rem, 6vw, 4rem)', 
-            color: '#FFFFFF', 
-            fontWeight: '800', 
-            lineHeight: '1.1', 
-            marginBottom: '1.25rem',
-            textShadow: '0 4px 12px rgba(0,0,0,0.3)'
-          }}>
-            Midyear <span style={{ color: '#FFD700' }}>Thanksgiving</span> Service
-          </h2>
-          
-          <p style={{ 
-            color: 'rgba(255, 255, 255, 0.85)', 
-            fontSize: 'clamp(1rem, 2vw, 1.15rem)', 
-            lineHeight: '1.75', 
-            maxWidth: '680px', 
-            margin: '0 auto 3rem' 
-          }}>
-            Join us for a vibrant service of intense gratitude, praise, and dancing as we celebrate God's faithfulness. Come ready to dance and thank God in your native attire!
-          </p>
-
-          {/* Middle: Transparent Countdown Display */}
-          <div style={{ margin: '0 auto 3.5rem', maxWidth: '640px' }}>
-            <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              {[
-                { value: timeLeft.days, label: 'Days' },
-                { value: timeLeft.hours, label: 'Hours' },
-                { value: timeLeft.minutes, label: 'Minutes' },
-                { value: timeLeft.seconds, label: 'Seconds' }
-              ].map((unit, idx) => (
-                <div key={idx} style={{ 
-                  flex: '1 1 90px', 
-                  minWidth: '90px', 
-                  textAlign: 'center',
-                  padding: '0.5rem 0'
-                }}>
-                  <div style={{ 
-                    fontSize: 'clamp(3.8rem, 9vw, 5.8rem)', 
-                    fontWeight: '800', 
-                    color: '#FFFFFF', 
-                    fontFamily: "'Plus Jakarta Sans',sans-serif", 
-                    lineHeight: '1',
-                    letterSpacing: '0.02em',
-                    textShadow: '0 4px 15px rgba(0,0,0,0.6)'
-                  }}>
-                    {String(unit.value).padStart(2, '0')}
-                  </div>
-                  <div style={{ 
-                    fontSize: '0.75rem', 
-                    color: '#FFD700', // Gold label
-                    fontWeight: '700', 
-                    textTransform: 'uppercase', 
-                    letterSpacing: '0.12em', 
-                    marginTop: '0.5rem',
-                    textShadow: '0 2px 4px rgba(0,0,0,0.4)'
-                  }}>
-                    {unit.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom: Location & Venue Info */}
-          <div style={{ 
-            background: 'rgba(255, 255, 255, 0.06)', 
-            border: '1px solid rgba(255, 255, 255, 0.12)', 
-            borderRadius: '24px', 
-            padding: '2rem', 
-            maxWidth: '680px', 
-            margin: '0 auto 3rem',
-            textAlign: 'center',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-          }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-              <div>
-                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.55)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>Date & Time</div>
-                <strong style={{ color: '#FFFFFF', fontSize: '1rem', display: 'block', marginBottom: '0.2rem' }}>Sunday, 28th June 2026</strong>
-                <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>10:30 AM West Africa Time</span>
-              </div>
-              <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '1.5rem' }}>
-                <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.55)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.35rem' }}>Venue & Landmark</div>
-                <strong style={{ color: '#FFFFFF', fontSize: '1rem', display: 'block', marginBottom: '0.2rem' }}>Signature by Wells Carlton</strong>
-                <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', display: 'block', lineHeight: '1.4' }}>
-                  No 8 Gado Nasko Close, Asokoro, Abuja
-                </span>
-                <span style={{ color: '#FFD700', fontSize: '0.8rem', fontWeight: '700', display: 'block', marginTop: '0.25rem' }}>
-                  📍 Landmark: Wells Carlton Hotel
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Action Buttons & Note */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem' }}>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <a 
-                href="https://forms.gle/q3or9XWA85MjU9618" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-primary" 
-                style={{ padding: '1rem 2.25rem' }}
-              >
-                Signify Presence (RSVP) <ArrowRight size={15} />
-              </a>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: '12px',
-                padding: '0.875rem 1.5rem',
-                color: '#FFFFFF',
-                fontSize: '0.9rem',
-                fontWeight: '700'
-              }}>
-                👑 Dress Code: Native Attire
-              </div>
-            </div>
-            <span style={{ fontSize: '0.875rem', color: 'rgba(255, 255, 255, 0.7)', fontWeight: '600' }}>
-              🍇 Communion will be served · Come with your family and friends
-            </span>
-          </div>
-
-        </div>
-      </section>
 
       {/* ── ABOUT PREVIEW ── */}
       <section id="about" style={{ padding: '6rem 1.5rem', background: '#FFFFFF' }}>
