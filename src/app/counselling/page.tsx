@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { ArrowRight, Check } from 'lucide-react';
 
 const categories = ['General Counselling', 'Relationship / Marriage', 'Family', 'Career / Purpose', 'Spiritual Growth', 'Prayer Request', 'Other'];
-const modes = ['Physical', 'Phone Call', 'Video Call'];
+const modes = ['Phone Call', 'Video Call'];
 
 export default function CounsellingPage() {
-  const [form, setForm] = useState({ fullName: '', phone: '', email: '', date: '', time: '', category: '', message: '', mode: '', consent: false });
+  const [form, setForm] = useState({ fullName: '', phone: '', email: '', date: '', time: '', category: '', mode: '', location: '', message: '', consent: false });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -104,6 +104,9 @@ export default function CounsellingPage() {
                         <option value="">Select mode</option>
                         {modes.map(m => <option key={m} value={m}>{m}</option>)}
                       </select>
+                    </div>
+                    <div><label className="form-label" htmlFor="c-loc">Location in FCT, Abuja *</label>
+                      <input id="c-loc" type="text" required className="form-input" placeholder="e.g. Wuse, Garki, Gwarinpa" value={form.location} onChange={e => setForm(f => ({ ...f, location: e.target.value }))} />
                     </div>
                     <div><label className="form-label" htmlFor="c-msg">Brief Message</label><textarea id="c-msg" className="form-textarea" placeholder="Share a little about what you'd like to discuss..." value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} /></div>
                     <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
