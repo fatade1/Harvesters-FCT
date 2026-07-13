@@ -84,10 +84,8 @@ export default function CounsellingPage() {
                       <div><label className="form-label" htmlFor="c-phone">Phone *</label><input id="c-phone" type="tel" required className="form-input" placeholder="+234..." value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} /></div>
                     </div>
                     <div><label className="form-label" htmlFor="c-email">Email *</label><input id="c-email" type="email" required className="form-input" placeholder="your@email.com" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} /></div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                      <div><label className="form-label" htmlFor="c-date">Preferred Date *</label><input id="c-date" type="date" required className="form-input" value={form.date} onChange={e => setForm(f => ({ ...f, date: e.target.value }))} /></div>
-                      <div><label className="form-label" htmlFor="c-time">Preferred Time *</label><input id="c-time" type="time" required className="form-input" value={form.time} onChange={e => setForm(f => ({ ...f, time: e.target.value }))} /></div>
-                    </div>
+                    <div><label className="form-label" htmlFor="c-date">Preferred Date *</label><input id="c-date" type="date" required className="form-input" value={form.date} onChange={e => setForm(f => ({ ...f, date: e.target.value }))} /></div>
+                    <div><label className="form-label" htmlFor="c-time">Preferred Time *</label><input id="c-time" type="time" required className="form-input" value={form.time} onChange={e => setForm(f => ({ ...f, time: e.target.value }))} /></div>
                     <div><label className="form-label" htmlFor="c-cat">Category *</label>
                       <select id="c-cat" required className="form-select" value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}>
                         <option value="">Select a category</option>
