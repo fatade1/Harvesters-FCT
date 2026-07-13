@@ -16,17 +16,13 @@ export default function CounsellingPage() {
     setLoading(true);
     
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycby3NcQRX9okkgwxB2RggZab0mHlGlnNPUMKt3MABLTI68vxaZpgXnpebPYjtdjmjnXd/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycby3NcQRX9okkgwxB2RggZab0mHlGlnNPUMKt3MABLTI68vxaZpgXnpebPYjtdjmjnXd/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(form)
       });
-      const result = await response.json();
-      if (response.ok && result.result === 'success') {
-        setSubmitted(true);
-      } else {
-        console.error('Form submission failed:', result);
-      }
+      setSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
