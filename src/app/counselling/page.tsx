@@ -16,18 +16,17 @@ export default function CounsellingPage() {
     setLoading(true);
     
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycby3NcQRX9okkgwxB2RggZab0mHlGlnNPUMKt3MABLTI68vxaZpgXnpebPYjtdjmjnXd/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          subject: 'New Counselling Request - Harvesters FCT',
-          from_name: 'Harvesters FCT Website',
-          ...form
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
       });
-      if (response.ok) setSubmitted(true);
-      else console.error('Form submission failed.');
+      const result = await response.json();
+      if (response.ok && result.result === 'success') {
+        setSubmitted(true);
+      } else {
+        console.error('Form submission failed:', result);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
