@@ -19,10 +19,10 @@ const communities = [
   { name: 'Non-Interest Small Group', desc: 'For anyone who simply wants a warm community to belong to, grow with, pray with, and do life with beyond shared interests.', category: 'Non-Interest', icon: '❤️' },
 ];
 
-interface FormData { fullName: string; phone: string; email: string; address: string; community: string; }
+interface FormData { fullName: string; phone: string; email: string; address: string; }
 
 export default function CommunitiesPage() {
-  const [form, setForm] = useState<FormData>({ fullName: '', phone: '', email: '', address: '', community: '' });
+  const [form, setForm] = useState<FormData>({ fullName: '', phone: '', email: '', address: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -153,12 +153,12 @@ export default function CommunitiesPage() {
                     </div>
                     <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '1.5rem', fontWeight: '800', color: '#071E3D', marginBottom: '0.75rem' }}>Request Submitted!</h3>
                     <p style={{ color: '#5F6B7A', lineHeight: '1.8', marginBottom: '2rem', fontSize: '0.925rem' }}>
-                      Thank you for choosing to join the <strong>{form.community}</strong>. Our church administrators have received your details and will reach out to you shortly to add you to the group.
+                      Thank you for choosing to join a community. Our church administrators have received your details and will reach out to you shortly to get you added to the right group.
                     </p>
                     <button 
                       onClick={() => {
                         setSubmitted(false);
-                        setForm({ fullName: '', phone: '', email: '', address: '', community: '' });
+                        setForm({ fullName: '', phone: '', email: '', address: '' });
                       }} 
                       className="btn-primary" 
                       style={{ width: '100%', justifyContent: 'center' }}
@@ -221,30 +221,7 @@ export default function CommunitiesPage() {
                         onChange={e => setForm(f => ({ ...f, address: e.target.value }))} 
                       />
                     </div>
-                    
-                    <div>
-                      <label className="form-label" htmlFor="community">Choose Community *</label>
-                      <select 
-                        id="community" 
-                        required 
-                        className="form-select"
-                        value={form.community}
-                        onChange={e => setForm(f => ({ ...f, community: e.target.value }))}
-                      >
-                        <option value="" disabled>-- Select a Community --</option>
-                        <optgroup label="Interest-Based Communities">
-                          {communities.filter(c => c.category === 'Interest').map(c => (
-                            <option key={c.name} value={c.name}>{c.name}</option>
-                          ))}
-                        </optgroup>
-                        <optgroup label="Non-Interest-Based Communities">
-                          {communities.filter(c => c.category !== 'Interest').map(c => (
-                            <option key={c.name} value={c.name}>{c.name}</option>
-                          ))}
-                        </optgroup>
-                      </select>
-                    </div>
-                    
+
                     <button 
                       type="submit" 
                       className="btn-primary" 
